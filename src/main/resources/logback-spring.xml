@@ -12,7 +12,7 @@
         </layout>
     </appender>
 
-   <!--  <appender name="RollingFile"
+    <appender name="RollingFile"
         class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGS}/spring-boot-logger.log</file>
         <encoder
@@ -30,15 +30,17 @@
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
-    </appender> -->
+    </appender>
     
     <!-- LOG everything at INFO level -->
-   <!--  <root level="info">
+    <root level="info">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
-    </root> -->
+    </root>
 
     <logger name="kr.shx.sse" level="trace" additivity="false">
+            <appender-ref ref="RollingFile" />
+    
         <appender-ref ref="Console" />
     </logger>
 
