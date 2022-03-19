@@ -29,7 +29,7 @@ class SSEHandler {
 	ConfigurableApplicationContext context;
 
 	@GetMapping("/notifications")
-	@CrossOrigin
+	@CrossOrigin("*")
 	public Flux<ServerSentEvent<String>> sendNotification(@RequestParam("userId") String userId) {
 		logger.info("Notification Streaming: {}", userId );
 		return Flux.<ServerSentEvent<String>>create(sync -> {
